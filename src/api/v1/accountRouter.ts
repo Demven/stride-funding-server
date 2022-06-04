@@ -1,13 +1,12 @@
 import { Router as createRouter, Request, Response } from 'express';
 import Account from '../../types/Account';
-
-const ACCOUNTS_DATA_PATH = '../../../data/accounts.json';
+import accounts from '../../../data/accounts.json';
 
 const accountRouter = createRouter();
 
 accountRouter.post('/sign-in', (req:Request, res:Response) => {
   const { name, email } = req.body;
-  const existingAccount:Account|undefined = require(ACCOUNTS_DATA_PATH)[email];
+  const existingAccount:Account|undefined = accounts[email];
 
   if (existingAccount?.name === name) {
     res.json(existingAccount);
@@ -18,7 +17,6 @@ accountRouter.post('/sign-in', (req:Request, res:Response) => {
 
 accountRouter.post('/validate', (req:Request, res:Response) => {
   const { token } = req.body;
-  const accounts:Account|undefined = require(ACCOUNTS_DATA_PATH);
 
   if (!token) return res.sendStatus(401);
 
