@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm run clean && tsc",
-    "start": "node dist/src/index.js --optimize_for_size --max_old_space_size=460",
+    "start": "node dist/src/index.js --optimize_for_size --max_old_space_size=4096",
     "dev": "ts-node-dev --respawn src/index.ts"
   },
   "dependencies": {
