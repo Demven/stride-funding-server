@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import Institution from '../../types/Institution';
 import institutions from '../../../data/institutions.json';
+import saved from '../../../data/saved.json'; // needed only to include the file into the build
 
 const SAVED_DATA_PATH = '../../../data/saved.json';
 
